@@ -66,7 +66,7 @@ class Scheduler : public ThreadHolder<Scheduler>
 		std::atomic<uint32_t> lastEventId{0};
 		std::unordered_map<uint32_t, boost::asio::steady_timer> eventIdTimerMap;
                 boost::asio::io_context io_context;
-                boost::asio::executor_work_guard<boost::asio::io_context::executor_type> work_guard =
+                boost::asio::executor_work_guard<boost::asio::io_context::executor_type> work =
                         boost::asio::make_work_guard(io_context);
 };
 

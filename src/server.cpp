@@ -20,7 +20,6 @@
 #include "otpch.h"
 
 #include <boost/asio/ip/address.hpp>
-#include <boost/asio/post.hpp>
 
 #include "outputmessage.h"
 #include "server.h"
@@ -58,7 +57,7 @@ void ServiceManager::stop()
 
 	for (auto& servicePortIt : acceptors) {
 		try {
-                boost::asio::post(io_context, std::bind(&ServicePort::onStopServer, servicePortIt.second));
+                io_context.post(std::bind(&ServicePort::onStopServer, servicePortIt.second));
 		} catch (boost::system::system_error& e) {
 			std::cout << "[ServiceManager::stop] Network Error: " << e.what() << std::endl;
 		}
