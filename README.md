@@ -15,6 +15,13 @@ This downgrade is up to Dec 21, 2021, commit: https://github.com/otland/forgotte
 
 [Wiki](https://github.com/otland/forgottenserver/wiki/Compiling)
 
+## Configuration
+
+Copy `config.lua.dist` to `config.lua` and adjust the database credentials together with the
+network settings before starting the server. The distribution ships with example values, but
+they assume a local MySQL instance and default login ports. Review the configuration to avoid
+connection issues when running on a different host or when using custom account data.
+
 ## Contributing
 
 Pull requests are welcome.
